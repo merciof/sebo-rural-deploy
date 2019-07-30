@@ -71,24 +71,23 @@ hibernate:
 dataSource:
     pooled: true
     jmxExport: true
-    driverClassName: org.postgresql.Driver
-    dialect: org.hibernate.dialect.PostgreSQLDialect
-    username: recvknyivxsdly
-    password: '73ae2ab3971fa9f8349fc332cd4cab19626a355d0df4f1763fd5a6e540f725b4'
+    driverClassName: org.h2.Driver
+    username: sa
+    password: ''
 
 environments:
     development:
         dataSource:
             dbCreate: create-drop
-            url: jdbc:postgres://recvknyivxsdly:73ae2ab3971fa9f8349fc332cd4cab19626a355d0df4f1763fd5a6e540f725b4@ec2-107-21-201-238.compute-1.amazonaws.com:5432/df5opteheef844:5432/df5opteheef844
+            url: jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
     test:
         dataSource:
             dbCreate: update
-            url: jdbc:postgres://recvknyivxsdly:73ae2ab3971fa9f8349fc332cd4cab19626a355d0df4f1763fd5a6e540f725b4@ec2-107-21-201-238.compute-1.amazonaws.com:5432/df5opteheef844:5432/df5opteheef844
+            url: jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
     production:
         dataSource:
             dbCreate: none
-            url: jdbc:postgres://recvknyivxsdly:73ae2ab3971fa9f8349fc332cd4cab19626a355d0df4f1763fd5a6e540f725b4@ec2-107-21-201-238.compute-1.amazonaws.com:5432/df5opteheef844:5432/df5opteheef844
+            url: jdbc:h2:./prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
             properties:
                 jmxEnabled: true
                 initialSize: 5
