@@ -10,7 +10,7 @@ class Book {
     String periodo
     String disciplina
     String preco
-    Date dataCriacaoAnuncio 
+    Date dataCriacaoAnuncio
 
     static constraints = {
       titulo nullable : true
@@ -20,7 +20,7 @@ class Book {
       curso nullable : true
       periodo nullable : true
       disciplina nullable : true
-      student nullable: true
+      //student nullable: true
       preco nullable: true
       dataCriacaoAnuncio nullable: true
     }
